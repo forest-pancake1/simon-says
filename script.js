@@ -429,7 +429,7 @@ menuBtn.textContent = 'back to menu';
 winBox.append(menuBtn);
 
 // следующий уровень!
-
+// просто комментарий
 let scoreNumber = 0;
 
 nextBtn.addEventListener('click', () => {
