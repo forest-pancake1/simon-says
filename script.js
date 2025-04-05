@@ -331,7 +331,6 @@ startBtn.addEventListener('click', () =>{
 function handleCheck(e) {
 const isCorrect = check(e.target, outPut);
 if(isCorrect && e.target.value.length === outPut.length) {
-  console.log('все верно!')
   winBox.classList.add('active');
   playSound(win);
   disabledStart();
@@ -364,7 +363,6 @@ i=0;
 
     if( expectedChar !== enterdChar ){
       playSound(error)
-       console.log('символ введен НЕверно!')
        input.classList.add('wrong');
        disableInput();
        tryCount += 1;
