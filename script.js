@@ -1,3 +1,6 @@
+// document.createElement обернуть в утилити функцию*
+// проговорить с гпт подход к неймингу переменных и функций
+
 const mainScreen = document.createElement('div');
 mainScreen.className = 'mainScreen';
 document.body.appendChild(mainScreen);
@@ -17,6 +20,13 @@ const menuBox = document.createElement('div');
 menuBox.className = 'menu';
 logo.after(menuBox);
 
+// DRY - dont repeat yourself
+// типизировать параметры утилити функции на самые распространенные
+// добавить параметры названий классов в утилити фунцию и тд
+
+// const levels = createLevels() => {
+// easy: HTMLElement
+// }
 const easy = document.createElement('button');
 easy.classList.add('level_button');
 easy.classList.add('active');
@@ -42,10 +52,14 @@ start.textContent = 'START';
 const numberArray = ['Digit1', 'Digit2', 'Digit3', 'Digit4', 'Digit5', 'Digit6', 'Digit7', 'Digit8', 'Digit9', 'Digit0'];
 const keyBoardArray = ['KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'KeyA', 'KeyS', 'KeyD', 'KeyF', 'KeyG', 'KeyH', 'KeyJ', 'KeyK', 'KeyL', 'KeyZ', 'KeyX', 'KeyC', 'KeyV', 'KeyB', 'KeyN', 'KeyM']
 
+// разбей код на функциональные компоненты JS/TS и изолировать в разных файлах и насроить импорты и до главной функции App
+
 let charsArray = numberArray;
 let levelName = '';
 const levels = document.querySelectorAll('.level_button');
 
+// easy => levels.easy
+// addClickListeners(elements: HTMLElement[]) => elements.forEact.,...
 easy.addEventListener('click', () => {
   levels.forEach(level =>{
     if(level.classList.contains('active')){
@@ -84,6 +98,10 @@ hard.addEventListener('click', () => {
   playSound(click);
 })
 
+/// вынести в отдельную функцию ^
+
+
+// компонент кнопки
 start.addEventListener('click', () => {
   console.log(charsArray);
   start.classList.toggle('active1');
@@ -92,7 +110,7 @@ start.addEventListener('click', () => {
   playSound(click);
 
 })
-// звуки
+// компонент звуков
 const tipe = new Audio('sounds/tipe.mp3');
 const error = new Audio('sounds/error.mp3');
 const click = new Audio('sounds/click.mp3');
@@ -104,7 +122,7 @@ function playSound(sound){
 }
 
 
-// создание клавиатуры
+// создание клавиатуры => компонент клавиатуры использование компонента А снизу
 const keyboard = document.createElement('div');
 keyboard.classList.add('keyboard');
 mainScreen.appendChild(keyboard);
@@ -138,7 +156,7 @@ function createKeys(conteiner, codes, className){
 createKeys(numbersRow, numberArray, 'key-number');
 createKeys(lettersRow, keyBoardArray, 'key-letter');
 
-// анимация нажатия на клавиатуру
+// анимация нажатия на клавиатуру в компоненте клавиатуры v
 
 document.addEventListener('keydown', (event) => {
   const activeKey = document.querySelector('.key.active');
@@ -195,7 +213,7 @@ keys.forEach(key =>{
 })
 })
 
-// поле ввода
+// поле ввода компонент А
 
 const input = document.createElement('input');
 input.classList.add('input');
@@ -227,7 +245,7 @@ function disableInput() {
 }
 
 
-  // клавиши start и repeate
+  // клавиши start и repeate !отдельные компоненты или компонент!
 
   const buttons = document.createElement('div');
   buttons.classList.add('buttons');
