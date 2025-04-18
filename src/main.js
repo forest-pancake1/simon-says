@@ -1,3 +1,9 @@
+// import './style.css'
+// import javascriptLogo from './javascript.svg'
+// import viteLogo from '/vite.svg'
+// import { setupCounter } from './counter.js'
+
+
 // document.createElement обернуть в утилити функцию*
 // проговорить с гпт подход к неймингу переменных и функций
 
@@ -111,10 +117,10 @@ start.addEventListener('click', () => {
 
 })
 // компонент звуков
-const tipe = new Audio('sounds/tipe.mp3');
-const error = new Audio('sounds/error.mp3');
-const click = new Audio('sounds/click.mp3');
-const win = new Audio('sounds/win.mp3');
+const tipe = new Audio('public/sounds/tipe.mp3');
+const error = new Audio('public/sounds/error.mp3');
+const click = new Audio('public/sounds/click.mp3');
+const win = new Audio('public/sounds/win.mp3');
 
 function playSound(sound){
  sound.currentTime = 0;
@@ -371,7 +377,7 @@ let maxCount = 2;
 function check(input, outPut) {
 
 const userInput = input.value.toUpperCase();
-i=0;
+// i=0;
 
   for(let i=0; i<userInput.length; i++){
 
