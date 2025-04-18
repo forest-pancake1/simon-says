@@ -117,10 +117,10 @@ start.addEventListener('click', () => {
 
 })
 // компонент звуков
-const tipe = new Audio('/sounds/tipe.mp3');
-const error = new Audio('/sounds/error.mp3');
-const click = new Audio('/sounds/click.mp3');
-const win = new Audio('/sounds/win.mp3');
+const tipe = new Audio('sounds/tipe.mp3');
+const error = new Audio('sounds/error.mp3');
+const click = new Audio('sounds/click.mp3');
+const win = new Audio('sounds/win.mp3');
 
 function playSound(sound){
  sound.currentTime = 0;
@@ -175,11 +175,12 @@ document.addEventListener('keydown', (event) => {
 
   if(keyElement) {
     keyElement.classList.add('active');
-  }
-  setTimeout(() => {
+   setTimeout(() => {
     keyElement.classList.remove('active')
   }, 1000);
+}
 })
+
 
 const keys = document.querySelectorAll('.key');
 keys.forEach(key =>{
