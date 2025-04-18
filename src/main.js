@@ -117,10 +117,10 @@ start.addEventListener('click', () => {
 
 })
 // компонент звуков
-const tipe = new Audio('public/sounds/tipe.mp3');
-const error = new Audio('public/sounds/error.mp3');
-const click = new Audio('public/sounds/click.mp3');
-const win = new Audio('public/sounds/win.mp3');
+const tipe = new Audio('/sounds/tipe.mp3');
+const error = new Audio('/sounds/error.mp3');
+const click = new Audio('/sounds/click.mp3');
+const win = new Audio('/sounds/win.mp3');
 
 function playSound(sound){
  sound.currentTime = 0;
