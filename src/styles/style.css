@@ -140,6 +140,8 @@ body{
   text-align: center;
   font-size: 35px;
   color: blanchedalmond;
+  letter-spacing: 0 !important; 
+  padding: 0 !important;
 }
 .input.active{
   outline: none;

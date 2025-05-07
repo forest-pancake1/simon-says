@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "strict": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "allowJs": true,     // Позволит смешивать JS и TS
+    "checkJs": true      // Проверять типы в JS-файлах
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
+}

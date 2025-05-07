@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import path from 'path';
 
 export default defineConfig({
-  base: '/simon-says/', // Убедись, что это название твоего репозитория
+  base: '/simon-says/',
   plugins: [
     viteStaticCopy({
       targets: [
@@ -14,6 +15,12 @@ export default defineConfig({
     })
   ],
   build: {
-    outDir: 'dist'
+    outDir: 'dist',
+    assetsDir: '.', // Помещаем assets в корень
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'index.html')
   }
+ }
+}
 });
