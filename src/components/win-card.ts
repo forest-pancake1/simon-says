@@ -13,5 +13,5 @@ export function createWinCard (
      nextBtn,
      menuBtn
     }
-  }
+  };
 }

@@ -5,7 +5,7 @@ export function createLevelButtons (container: HTMLElement) {
     medium: createlevels('medium', container),
     hard: createlevels('hard', container),
     start: createlevels('START', container, false, 'start_menu')
-  }
+  };
 }
 
 
@@ -26,10 +26,10 @@ import { keyBoardArray, numberArray } from "./config";
 import { playSound } from "./sounds";
 
 type Difficulty = 'easy' | 'medium' | 'hard';
-type StartButton = 'start' | Difficulty;
+// type StartButton = 'start' | Difficulty;
 
 interface LevelConfig {
-  update: (difficulty: Difficulty, newChars: string[]) => void;
+  update: (_difficulty: Difficulty, _newChars: string[]) => void;
   onStart?: () => void;
 }
 
@@ -39,9 +39,9 @@ export function setupLevelHandlers (
 ){
 const handleLevelClick = (difficulty: Difficulty) => {
   Object.values(elements).forEach(level => {
-    level.classList.remove('active')
-  })
-  elements[difficulty].classList.add('active')
+    level.classList.remove('active');
+  });
+  elements[difficulty].classList.add('active');
   let newArray: string[];
   switch(difficulty){
     case 'easy': newArray = numberArray; break;
@@ -50,12 +50,12 @@ const handleLevelClick = (difficulty: Difficulty) => {
   }
   config.update(difficulty, newArray);
   playSound('tipe');
-}
+};
 const handleStartClick = () =>{
   elements.start.classList.add('active1');
   if(config.onStart) config.onStart();
-  playSound('click')
-}
+  playSound('click');
+};
 elements.easy.addEventListener('click', () => handleLevelClick('easy'));
 elements.medium.addEventListener('click', () => handleLevelClick('medium'));
 elements.hard.addEventListener('click', () => handleLevelClick('hard'));

@@ -34,7 +34,7 @@ export const gameState = {
     return this.tryCount;
   }
 
-}
+};
 
 export const LEVEL_DISPLAY_NAMES = {
   easy: 'easy',

@@ -24,7 +24,7 @@ export function initGameElements(){
     parent: mainScreen,
     numberArray: numberArray as KeyCode[],
     keyBoardArray: keyBoardArray as KeyCode[]
-  })
+  });
   const {Element: input, enableInput, disableInput} = createInput(mainScreen);
 
   const {elements, controls} = createStartRapeatBtns(mainScreen);
@@ -54,7 +54,7 @@ export function initGameElements(){
     winElements,
     upperPanel,
     checkSequence
-  }
+  };
   
 }
 

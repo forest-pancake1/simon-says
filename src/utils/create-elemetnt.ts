@@ -9,5 +9,5 @@ export function createElement(
   if(className) el.className = className;
   if(parent) parent.append(el);
   if(text) el.textContent = text;
-  return el
+  return el;
 }

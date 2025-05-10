@@ -1,6 +1,6 @@
 
 export const createInputHandlers = (input: HTMLInputElement) => {
-  let currentHandler: ((e: Event) => void) | null = null;
+  let currentHandler: ((_e: Event) => void) | null = null;
 
   return {
     set(handler: (e: Event) => void) {

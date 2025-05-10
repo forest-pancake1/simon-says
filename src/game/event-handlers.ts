@@ -35,8 +35,8 @@ export function setUpGameHandlers({
     inputHandlers.clear();
     setTimeout (() => {
       controls.enabledStart();
-      elements.startBtn.textContent = 'try again'
-      enableInput()
+      elements.startBtn.textContent = 'try again';
+      enableInput();
       controls.enableRepeat();
       input.focus();
       input.value = '';
@@ -78,8 +78,8 @@ export function setUpGameHandlers({
     setTimeout(() => {
       input.value = '';
       enableInput();
-    },timeout)
-  })
+    },timeout);
+  });
 
   winElements.nextBtn.addEventListener('click', () => {
     playSound('click');
@@ -93,15 +93,15 @@ export function setUpGameHandlers({
     upperPanel.menuButton.enableMenu();
     elements.startBtn.textContent = 'START';
     upperPanel.update.updateLevel();
-    console.log('количество знаков',gameState.numberOfChars)
-  })
+    console.log('количество знаков',gameState.numberOfChars);
+  });
 
   winElements.menuBtn.addEventListener('click', () => {
     handleMenuClick(input, mainScreen, startScreen, elements.startBtn, controls);
     winElements.winBox.classList.remove('active');
     upperPanel.menuButton.enableMenu();
     upperPanel.update.updateLevel();
-  })
+  });
 
   loseElements.tryAgain.addEventListener('click', () => {
     playSound('click');
@@ -110,17 +110,17 @@ export function setUpGameHandlers({
     upperPanel.menuButton.enableMenu();
     elements.startBtn.textContent = 'START';
     input.value = '';
-  })
+  });
 
   loseElements.menuBtn2.addEventListener('click', () => {
     handleMenuClick(input, mainScreen, startScreen, elements.startBtn, controls);
     loseElements.loseBox.classList.remove('active');
     upperPanel.menuButton.enableMenu();
     upperPanel.update.updateLevel();
-  })
+  });
   upperPanel.elements.backToMenu.addEventListener('click', () => {
     handleMenuClick(input, mainScreen, startScreen, elements.startBtn, controls);
     upperPanel.menuButton.enableMenu();
     upperPanel.update.updateLevel();
-  })
+  });
 }

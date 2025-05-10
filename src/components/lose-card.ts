@@ -13,5 +13,5 @@ export function createLoseCard (
      tryAgain,
      menuBtn2
     }
-  }
+  };
 }

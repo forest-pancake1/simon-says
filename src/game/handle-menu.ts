@@ -1,5 +1,5 @@
 import { playSound } from "../components/sounds";
-import { gameState } from "./game-state"
+import { gameState } from "./game-state";
 import { createStartRapeatBtns } from "../components/start-repeat-btns";
 
 export function handleMenuClick (

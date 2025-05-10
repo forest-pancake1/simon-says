@@ -2,7 +2,7 @@ import { playSound } from "../components/sounds";
 import { gameState } from "./game-state";
 
 interface inputChecker {
-  check: (output: string[]) => boolean,
+  check: (_output: string[]) => boolean,
   reset: () => void
 }
 
@@ -18,16 +18,16 @@ interface inputChecker {
     function check(outPut:string[]): boolean{
 
     const userInput = input.value.toUpperCase();
-    let isCorrect = true;
+    
 
   for(let i=0; i<userInput.length; i++){
 
     const enterdChar = userInput[i];
     const expectedChar = outPut[i].replace('Key', '').replace('Digit', '');
-    console.log(enterdChar, expectedChar)
+    console.log(enterdChar, expectedChar);
 
     if( expectedChar.toUpperCase() !== enterdChar.toUpperCase()){
-      playSound('error')
+      playSound('error');
        input.classList.add('wrong');
        InputController.disableInput();
        gameState.incrementCount();
@@ -38,11 +38,11 @@ interface inputChecker {
         },1000);
 
         if(gameState.tryCount === gameState.maxCount){
-          loseBox.classList.add('active')
+          loseBox.classList.add('active');
           controls.disabledStart();
           menuButton.disableMenu();
-          controls.disableRepeat()
-          console.log('попытки закончились')
+          controls.disableRepeat();
+          console.log('попытки закончились');
          }
        return false;
     }
@@ -52,5 +52,5 @@ interface inputChecker {
  function reset (){
   gameState.resetCount();
  }
- return {check, reset}
+ return {check, reset};
 }

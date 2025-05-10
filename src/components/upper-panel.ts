@@ -11,8 +11,8 @@ interface upperPanelElements{
 },
  update:{
   updateLevel: () => void,
-  updateScore: (scoreNumber: number) => void,
-  updatelevelName: (levelName: string) => void
+  updateScore: (_scoreNumber: number) => void,
+  updatelevelName: (_levelName: string) => void
 }
 menuButton:{
   disableMenu: () => void,  
@@ -72,7 +72,7 @@ function enableMenu() {
     disableMenu,
     enableMenu
   }
- }
+ };
 }
 
 

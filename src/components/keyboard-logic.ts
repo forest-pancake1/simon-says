@@ -11,9 +11,9 @@ export function setUpKeyboardLogic (input: HTMLInputElement){
   const activateKey = (key: keyElement | null, duration: number = 1000) => {
     if(!key) return;
   
-    key.classList.add('active')
+    key.classList.add('active');
     setTimeout(() => {
-      key.classList.remove('active')
+      key.classList.remove('active');
     }, duration);
   };
   
@@ -21,7 +21,7 @@ export function setUpKeyboardLogic (input: HTMLInputElement){
     const keyElement = document.querySelector<keyElement>(`[data-key="${event.code}"]`);
     playSound('tipe');
     activateKey(keyElement);
-  }
+  };
   const handleVirtualKey = (event: MouseEvent, key: keyElement) =>{
     event.preventDefault();
     playSound('tipe');
@@ -51,13 +51,13 @@ export function setUpKeyboardLogic (input: HTMLInputElement){
 
   input.selectionStart = input.selectionEnd = start + char.length;
   input.focus();
-  }
+  };
 
   document.addEventListener('keydown', handlePhisicalKey);
 
   const keys = document.querySelectorAll<keyElement>('.key');
   keys.forEach(key => {
-    key.addEventListener('mousedown',(e: MouseEvent) => {handleVirtualKey(e, key)})
-  })
+    key.addEventListener('mousedown',(e: MouseEvent) => {handleVirtualKey(e, key);});
+  });
 }
 

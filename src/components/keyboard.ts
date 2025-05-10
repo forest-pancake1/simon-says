@@ -27,7 +27,7 @@ return {
     const target = type === 'numbers' ? numbersRow : lettersRow;
     renderKeys(target, newKeys, `key-${type}`);
   }
-}
+};
 }
 
 function renderKeys(container: HTMLElement, codes: KeyCode[], className: string) {

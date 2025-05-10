@@ -13,22 +13,22 @@
   const disabledStart = () => {
       startBtn.disabled = true;
       startBtn.classList.add('disable');
-    }
+    };
   
   const enabledStart = () =>{
       startBtn.disabled = false;
        startBtn.classList.remove('disable');
-    }
+    };
     
   const enableRepeat = () => {
       repeatBtn.disabled = false;
       repeatBtn.classList.add('active');
-    }
+    };
 
   const disableRepeat = () => {
      repeatBtn.disabled = true;
      repeatBtn.classList.remove('active');
-   }
+   };
 
    return{
     elements: {

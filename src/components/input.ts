@@ -15,9 +15,9 @@ function enableInput() {
   isInputLocked = true;
   input.addEventListener('blur', () => {
     if (isInputLocked) {
-      input.focus()
+      input.focus();
     }
-  })
+  });
 }
 // заблокированное поле
 function disableInput() {
@@ -30,7 +30,7 @@ return{
   Element: input,
   enableInput,
   disableInput
-}
+};
 }
 export type InputController = {
   element: HTMLInputElement;
