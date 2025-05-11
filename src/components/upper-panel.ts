@@ -1,5 +1,5 @@
 import { createElement } from "../utils/create-elemetnt";
-import { gameState } from "../game/game-state";
+import { gameState } from "@/hooks/game-state";
  
 interface upperPanelElements{
   elements:{

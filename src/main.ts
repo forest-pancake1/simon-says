@@ -1,9 +1,9 @@
 import { setupLevelHandlers } from "./components/level-buttons";
-import { gameState } from "./game/game-state";
-import { setUpKeyboardLogic } from "./components/keyboard-logic";
-import { initGameElements } from "./game/game-init";
-import { setUpGameHandlers } from "./game/event-handlers";
-import { LEVEL_DISPLAY_NAMES } from "./game/game-state";
+import { gameState } from "./hooks/game-state";
+import { setUpKeyboardLogic } from "./hooks/keyboard-logic";
+import { initGameElements } from "./hooks/game-init";
+import { setUpGameHandlers } from "./hooks/event-handlers";
+import { LEVEL_DISPLAY_NAMES } from "./hooks/game-state";
 
 
 const gameElements = initGameElements();

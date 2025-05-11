@@ -4,6 +4,11 @@ import path from 'path';
 
 export default defineConfig({
   base: '/simon-says/',
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src')
+    }
+  },
   plugins: [
     viteStaticCopy({
       targets: [

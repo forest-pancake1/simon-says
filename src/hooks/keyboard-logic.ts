@@ -1,5 +1,5 @@
-import { playSound } from "./sounds";
-import type { KeyCode } from "./keyboard";
+import { playSound } from "../components/sounds";
+import type { KeyCode } from "../components/keyboard";
 
 type keyElement = HTMLElement & {
   dataset: {
