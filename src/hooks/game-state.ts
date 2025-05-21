@@ -1,50 +1,51 @@
 import { numberArray } from "../components/config";
 
-// TODO: Вынести в константы
+// TODO: Рассмотреть использование паттерна Observer для обновления UI
+// TODO: Вынести бизнес-логику в отдельный слой (domain)
 export const gameState = {
-  numberOfChars: 2, // FIXME: Сделать константой
+  numberOfChars: 2,
   outPut: [] as string[],
   charsArray: [...numberArray] as string[],
   score: 0,
   tryCount: 0,
-  maxCount: 2, // FIXME: Сделать константой
+  maxCount: 2,
 
-  // TODO: Добавить валидацию входных данных
-  updateNumberChars(newChars: number){
+  // FIXME: Нарушение принципа единой ответственности (SRP) - метод делает слишком много
+  updateNumberChars(newChars: number) {
     this.numberOfChars = newChars;
   },
 
-  // FIXME: Вынести логику форматирования в отдельную функцию
-  updateOutPut(newSequence: string[]){
+  // TODO: Рассмотреть использование immutable state management
+  updateOutPut(newSequence: string[]) {
     this.outPut = newSequence.map(char => 
       char.replace('Key', '').replace('Digit', '').toUpperCase()
     );
   },
 
-  // TODO: Добавить проверку на уникальность символов
-  updateCharsArray(newChars: string[]){
+  // FIXME: Отсутствует валидация входных данных
+  updateCharsArray(newChars: string[]) {
     this.charsArray = newChars;
   },
 
-  // FIXME: Добавить максимальное значение счета
+  // TODO: Добавить обработку переполнения счета
   incrementScore() {
     this.score += 1;
     return this.score;
   },
 
-  // TODO: Добавить проверку на превышение максимального количества попыток
+  // FIXME: Нарушение принципа открытости/закрытости (OCP) - логика попыток захардкожена
   incrementCount() {
     this.tryCount += 1;
     return this.tryCount;
   },
 
-  resetCount(){
+  resetCount() {
     this.tryCount = 0;
     return this.tryCount;
   }
 };
 
-// FIXME: Добавить локализацию
+// TODO: Вынести в отдельный конфиг-файл
 export const LEVEL_DISPLAY_NAMES = {
   easy: 'easy',
   medium: 'medium',
