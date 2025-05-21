@@ -10,16 +10,22 @@ import { createUpperPanel } from "../components/upper-panel";
 import { createWinCard } from "../components/win-card";
 import { createInputCheck } from "./check-sequence";
 
+// TODO: Рассмотреть использование паттерна Builder для инициализации игры
+// TODO: Вынести конфигурацию в отдельный файл
 export function initGameElements(){
+  // FIXME: Нарушение принципа инверсии зависимостей (DIP) - прямая зависимость от DOM
   const mainScreen = createElement('div', 'mainScreen', document.body);
   const startScreen = createElement('div', 'startScreen', document.body);
 
+  // TODO: Вынести тексты в локализацию
   const logo = createElement('h1', 'logo', startScreen, 'Simon Says');
   const menuBox = createElement('div', 'menu');
   logo.after(menuBox);
   
+  // TODO: Рассмотреть использование паттерна Factory для создания UI компонентов
   const levels = createLevelButtons(menuBox);
 
+  // FIXME: Нарушение принципа единой ответственности (SRP) - слишком много инициализации
   const keyboard = createKeyboard({
     parent: mainScreen,
     numberArray: numberArray as KeyCode[],
@@ -39,6 +45,7 @@ export function initGameElements(){
     loseElements.loseBox
   );
 
+  // TODO: Рассмотреть использование паттерна Facade для упрощения интерфейса
   return{
     mainScreen,
     startScreen,
@@ -55,6 +62,5 @@ export function initGameElements(){
     upperPanel,
     checkSequence
   };
-  
 }
 
