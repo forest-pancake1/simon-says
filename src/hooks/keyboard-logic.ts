@@ -8,6 +8,12 @@ type keyElement = HTMLElement & {
 }
 
 export function setUpKeyboardLogic (input: HTMLInputElement){
+  const isMobile = /Android|Iphone|Ipad/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    input.setAttribute('readonly', 'true');
+    input.inputMode = 'none';
+  }
   const activateKey = (key: keyElement | null, duration: number = 1000) => {
     if(!key) return;
   
@@ -18,11 +24,12 @@ export function setUpKeyboardLogic (input: HTMLInputElement){
   };
   
   const handlePhisicalKey = (event: KeyboardEvent) =>{
+    if(isMobile) return;
     const keyElement = document.querySelector<keyElement>(`[data-key="${event.code}"]`);
     playSound('tipe');
     activateKey(keyElement);
   };
-  const handleVirtualKey = (event: MouseEvent, key: keyElement) =>{
+  const handleVirtualKey = (event: MouseEvent | TouchEvent, key: keyElement) =>{
     event.preventDefault();
     playSound('tipe');
     activateKey(key);
@@ -58,6 +65,7 @@ export function setUpKeyboardLogic (input: HTMLInputElement){
   const keys = document.querySelectorAll<keyElement>('.key');
   keys.forEach(key => {
     key.addEventListener('mousedown',(e: MouseEvent) => {handleVirtualKey(e, key);});
+    key.addEventListener('touchstart',(e: TouchEvent) => {handleVirtualKey(e, key);});
   });
 }
 
