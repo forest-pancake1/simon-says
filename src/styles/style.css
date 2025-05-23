@@ -218,6 +218,7 @@ body{
 }
 .win.active, .lose.active{
   display: flex;
+  z-index: 100;
 }
 
 .next_btn, .menu_btn, .try_again{

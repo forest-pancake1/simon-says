@@ -55,12 +55,20 @@ export function setUpGameHandlers({
   const target = e.target as HTMLInputElement;
   const isCorrect=checkSequence.check(gameState.outPut);
   if(isCorrect && target.value.length === gameState.outPut.length) {
+    disableInput();
     winElements.winBox.classList.add('active');
     playSound('win');
     controls.disabledStart();
     upperPanel.menuButton.disableMenu();
     controls.disableRepeat();
-    disableInput();
+    
+    if (/iPhone|iPad/i.test(navigator.userAgent)) {
+      setTimeout(() => {
+        input.blur();
+        input.style.opacity = '0';
+      }, 100);
+    } 
+    
     if(gameState.numberOfChars === 10){
       winElements.nextBtn.classList.add('disable');
       winElements.nextBtn.disabled = true;
