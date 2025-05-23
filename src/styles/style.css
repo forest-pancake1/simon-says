@@ -1,0 +1,371 @@
+body{
+  display: flex;
+  justify-content: center;
+}
+
+/* стартовый экран */
+
+.startScreen{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 100px;
+  padding-bottom: 200px;
+  background-color: rgb(247, 231, 212);
+  gap: 70px;
+}
+.startScreen.disable{
+  display: none;
+}
+
+.logo{
+  font-size: 55px;
+  color: rgb(124, 64, 37);
+  letter-spacing: 10px;
+}
+
+.menu{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.level_button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color:  rgb(247, 201, 179);
+  font-size: 30px;
+  width: 300px;
+  height: 70px;
+  background-color: rgb(207, 110, 12);
+  border-radius: 20px;
+  border: none;
+  transition: 0.3s;
+}
+.level_button:hover{
+  background-color:  rgb(247, 175, 19);
+  color:  rgb(124, 64, 37);
+}
+.level_button.active{
+  border: 5px solid rgb(196, 141, 14);
+  background-color:  rgb(255, 157, 0);
+  color:  rgb(124, 64, 37); 
+}
+
+.start_menu{
+  background-color: rgb(218, 215, 45);
+  color:  rgb(124, 64, 37);
+}
+.start_menu:hover{
+  background-color: rgb(237, 237, 10);
+}
+.start_menu.active1{
+  background-color: rgb(218, 215, 45);
+}
+
+
+@media(width < 580px){
+  .logo{
+    font-size: 50px;
+    letter-spacing: 5px;
+  }
+  .startScreen{
+    padding: 15px;
+    padding-top: 50px;
+    padding-bottom: 100px;
+  }
+}
+
+/* основной экран */
+
+.mainScreen{
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  padding: 10px;
+  padding-bottom: 50px;
+  background-color: rgb(247, 231, 212);
+}
+.mainScreen.active{
+  display: flex;
+}
+
+.keyboard{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  width: 700px;
+}
+.numbers, .letters{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+}
+
+.key{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 60px;
+  background-color: rgb(214, 210, 72);
+  color: rgb(124, 64, 37);
+  border-radius: 8px;
+  margin: 7px;
+  font-size: 24px;
+  float: left;
+  transition: 0.5s ease-out;
+} 
+
+.key:hover{
+  background-color:  rgb(228, 170, 70);
+}
+
+.key.active{
+  background-color:  rgb(247, 163, 19);
+}
+
+.input{
+  width: 500px;
+  height: 50px;
+  background-color: rgb(235, 147, 83);
+  border-radius: 15px;
+  border: none;
+  text-align: center;
+  font-size: 35px;
+  color: blanchedalmond;
+  letter-spacing: 0 !important; 
+  padding: 0 !important;
+  opacity: 1 !important;
+}
+.input.active{
+  outline: none;
+  background-color:rgb(237, 130, 53);
+}
+.input.wrong{
+ background-color:rgb(237, 59, 53);
+}
+
+.buttons{
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 20px;
+}
+
+.start{
+  width: 250px;
+  height: 50px;
+  color: rgb(124, 64, 37);
+  font-size: 30px;
+  background-color:  rgb(237, 130, 53);
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.start:hover{
+  background-color:  rgb(240, 195, 82); 
+}
+
+.start.disable, .start.disable:hover{
+  color: rgb(180, 112, 80);
+  background-color:  rgb(237, 130, 53);
+  cursor:default;
+}
+
+.repeat{
+  width: 100px;
+  height: 50px;
+  color: rgb(198, 155, 133);
+  font-size: 25px;
+  background-color: rgb(214, 210, 72);
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  transition: 0.3s;
+  cursor:default;
+  text-align: center;
+}
+.repeat.active:hover{
+  background-color: rgb(221, 173, 69);
+}
+.repeat.active{
+  background-color: rgb(214, 210, 72); 
+  color: rgb(124, 64, 37);
+  cursor: pointer;
+}
+.win, .lose{
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 165px;
+  width: 550px;
+  height: 350px;
+  background-color:  rgb(247, 231, 212);
+  border: 5px solid rgb(206, 141, 110);
+  border-radius: 15px;
+  text-align: center;
+  font-size: 45px;
+  color: rgb(165, 88, 52);
+}
+.win.active, .lose.active{
+  display: flex;
+  z-index: 100;
+}
+
+.next_btn, .menu_btn, .try_again{
+  width: 350px ;
+  height: 60px;
+  border-radius: 8px;
+  background-color:  rgb(237, 130, 53);
+  font-size: 35px;
+  color:  rgb(135, 72, 42);
+  border: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.next_btn:hover, .menu_btn:hover, .try_again:hover{
+  background-color:  rgb(237, 206, 53);
+}
+
+.next_btn.disable, .next_btn.disable:hover{
+  color:  rgb(178, 114, 84);
+  background-color:  rgb(243, 159, 99);
+  cursor:default;
+
+}
+
+.level{
+  font-size: 45px;
+  color:  rgb(178, 114, 84);
+  background-color: rgb(246, 222, 66);
+  border-radius: 20px;
+  border: none;
+  /* margin-left: 100px;
+  margin-right: 150px; */
+  cursor:default;
+}
+
+.up{
+  display: flex;
+  width: 90%;
+  margin-bottom: 40px;
+  justify-content: space-between;
+  
+}
+
+.back{
+  width: 150px ;
+  height: 50px;
+  border-radius: 8px;
+  background-color:  rgb(245, 159, 98);
+  font-size: 22px;
+  color:  rgb(135, 72, 42);
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.back:hover{
+  background-color:  rgb(249, 142, 66);
+}
+.back.disabled, .back.disabled:hover{
+  background-color:  rgb(245, 159, 98);
+  color:  rgb(135, 72, 42);
+  cursor: default;
+}
+.now_level{
+  color:  rgb(168, 214, 68);
+  font-size: 30px;
+  margin-bottom: -30px;
+  margin-right: -30px;
+  cursor:default;
+}
+
+.score{
+  font-size: 35px;
+  color:  rgb(196, 138, 71);
+  cursor:default;
+
+}
+
+@media(width < 740px){
+  .keyboard{
+    width: 590px;
+  }
+  .key{
+    width: 45px;
+    height: 55px;
+  }
+  .input{
+    width: 450px;
+  }
+  .buttons{
+    margin-top: 20px;
+  }
+}
+
+@media(width < 618px){
+  .mainScreen{
+    gap: 30px;
+    padding-bottom: 100px;
+    padding-top: 20px;
+  }
+  .keyboard{
+    width: 350px;
+  }
+  .key{
+    width: 29px;
+    height: 45px;
+    margin: 3px;
+    font-size:20px;
+  }
+  .input{
+    width: 300px;
+  }
+  .start{
+    width: 200px;
+    height: 45px;
+  }
+  .repeat{
+    height: 45px;
+  }
+  .now_level{
+    font-size: 24px;
+    margin-bottom: -50px;
+    margin-right: -15px;
+  }
+  .back{
+    width: 112px;
+    height: 45px;
+    font-size: 20px;
+  }
+  .level{
+    font-size: 35px;
+    margin-top: 70px;
+  }
+  .score{
+    font-size: 28px;
+  }
+  .win, .lose{
+    width: 310px;
+    font-size: 40px;
+    top: 135px;
+  }
+  .next_btn, .menu_btn, .try_again{
+    width: 240px;
+    font-size: 30px;
+  }
+  .buttons{
+    margin-top: 50px;
+  }
+}
