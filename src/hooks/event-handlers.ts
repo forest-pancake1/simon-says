@@ -62,13 +62,13 @@ export function setUpGameHandlers({
     upperPanel.menuButton.disableMenu();
     controls.disableRepeat();
     
-    if (/iPhone|iPad/i.test(navigator.userAgent)) {
-      setTimeout(() => {
-        input.blur();
-        input.style.opacity = '0';
-      }, 100);
-    } 
-    
+    // if (/iPhone|iPad/i.test(navigator.userAgent)) {
+    //   setTimeout(() => {
+    //     input.blur();
+    //     input.style.opacity = '0';
+    //   }, 100);
+    // } 
+
     if(gameState.numberOfChars === 10){
       winElements.nextBtn.classList.add('disable');
       winElements.nextBtn.disabled = true;

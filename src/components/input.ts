@@ -24,7 +24,15 @@ function disableInput() {
   input.disabled = true;
   input.classList.remove('active');
   input.blur();
-  isInputLocked = true;
+
+  // if(/Android|Iphone|Ipad/.test(navigator.userAgent)){
+  //   input.style.opacity = '0'
+  //   input.style.position = 'absolute';
+  //   input.style.left = '-9999px';
+  //   input.readOnly = true;
+  //   input.inputMode = 'none'
+  // }
+   isInputLocked = true;
 };
 return{
   Element: input,
